@@ -42,6 +42,8 @@ const TableComponent = ({
           display: "flex",
           justifyContent: "flex-end",
           color: total > 100 && "red",
+          fontWeight: "bold",
+          fontSize: 20,
         }}
       >
         Total: {total} %
@@ -50,7 +52,11 @@ const TableComponent = ({
         <Button onClick={onReset} type="default" style={{ marginRight: 16 }}>
           Reset
         </Button>
-        <Button onClick={() => onAdd(data, total)} type="primary">
+        <Button
+          disabled={total !== 100}
+          onClick={() => onAdd(data)}
+          type="primary"
+        >
           Add
         </Button>
       </div>
