@@ -52,11 +52,7 @@ const TableComponent = ({
         <Button onClick={onReset} type="default" style={{ marginRight: 16 }}>
           Reset
         </Button>
-        <Button
-          disabled={total !== 100}
-          onClick={() => onAdd(data)}
-          type="primary"
-        >
+        <Button onClick={() => onAdd(data, total)} type="primary">
           Add
         </Button>
       </div>

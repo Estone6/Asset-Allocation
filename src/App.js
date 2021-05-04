@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TableComponent from "./components/TableComponent";
 import "antd/dist/antd.css";
+import { message } from "antd";
 
 function App() {
   const [assetAllocations, setAssetAllocations] = useState([
@@ -80,8 +81,11 @@ function App() {
       ],
     },
   ]);
-  const onAdd = (data) => {
-    console.log("onAdd", data);
+  const onAdd = (data, total) => {
+    console.log("onAdd", data, total);
+    if (total !== 100) {
+      return message.error("Total allocation percentage should be 100");
+    }
   };
   const onReset = () => {
     const newState = [...assetAllocations];
